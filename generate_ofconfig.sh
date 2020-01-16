@@ -37,6 +37,12 @@ clear
 
 logo
 # Ask for device codename
+printf "Device commercial name (for example Xiaomi Redmi Note 5)\nAnswer: "
+read TARGET_DEVICE_NAME
+clear
+
+logo
+# Ask for device codename
 printf "Device architecture - Possibilities: ARM - ARM64 - x86\nAnswer: "
 read TARGET_ARCH
 clear
@@ -100,7 +106,7 @@ IFS=" "
 
 
 # Copy to a new file config variables
-echo "# OrangeFox config file for $TARGET_DEVICE
+echo "# OrangeFox config file for $TARGET_DEVICE ($TARGET_DEVICE_NAME)
 # Config based on OrangeFox $SCRIPT_VERSION variables, support for newer versions can't be guaranteed
 # Created by generate_ofconfig.sh at $(date)
 TARGET_ARCH="$TARGET_ARCH"
