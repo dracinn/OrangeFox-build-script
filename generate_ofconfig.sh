@@ -31,7 +31,7 @@ clear
 
 logo
 # Ask for device codename
-printf "Device codename: "
+printf "Device codename (for example whyred)\nAnswer: "
 read TARGET_DEVICE
 clear
 
