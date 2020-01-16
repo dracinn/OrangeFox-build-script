@@ -109,9 +109,7 @@ IFS=" "
 echo "# OrangeFox config file for $TARGET_DEVICE ($TARGET_DEVICE_NAME)
 # Config based on OrangeFox $SCRIPT_VERSION variables, support for newer versions can't be guaranteed
 # Created by generate_ofconfig.sh at $(date)
-TARGET_ARCH="$TARGET_ARCH"
-DEVICE_RESOLUTION="$DEVICE_RESOLUTION"
-OF_SCREEN_H="$OF_SCREEN_H"" > configs/"$TARGET_DEVICE"_ofconfig
+DEVICE_RESOLUTION="$DEVICE_RESOLUTION"" > configs/"$TARGET_DEVICE"_ofconfig
 
 IFS="
 "
