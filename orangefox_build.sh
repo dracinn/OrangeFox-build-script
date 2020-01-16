@@ -1,6 +1,6 @@
 # OrangeFox building script by SebaUbuntu
 # You can find a list of all variables at OF_ROOT_DIR/vendor/recovery/orangefox_build_vars.txt
-SCRIPT_VERSION="v2.1"
+SCRIPT_VERSION="v2.2"
 #!/bin/bash
 
 # For clean environment
