@@ -40,7 +40,7 @@ printf "                                      $SCRIPT_VERSION                   
 
 logo
 # AOSP enviroment setup
-printf "AOSP environment setup, please wait...\n"
+echo "AOSP environment setup, please wait..."
 . build/envsetup.sh
 clear
 
@@ -77,7 +77,7 @@ if [ $TG_POST = "Yes" ]
 					fi
 				done
 		else
-			printf "Telegram API values not found! Telegram post will be skipped\n\n"
+			echo "Telegram API values not found! Telegram post will be skipped"
 			exit
 		fi
 fi
@@ -93,14 +93,14 @@ read CLEAN_BUILD_NEEDED
 case $CLEAN_BUILD_NEEDED in
 	yes|y|true|1)
 		CLEAN_BUILD_NEEDED=Yes
-		printf "\nDeleting out/ dir, please wait...\n"
+		echo "\nDeleting out/ dir, please wait..."
 		make clean
 		sleep 2
 		clear
 		;;
 	*)
 		CLEAN_BUILD_NEEDED=No
-		printf "\nClean build not required, skipping..."
+		echo "\nClean build not required, skipping..."
 		sleep 2
 		clear
 		;;
@@ -141,7 +141,7 @@ if [ -f configs/"$TARGET_DEVICE"_ofconfig ]
 				fi
 			done
 	else
-		printf "Device-specific config not found! Create a config file as documented in GitHub repo. Exiting...\n\n"
+		echo "Device-specific config not found! Create a config file as documented in GitHub repo. Exiting..."
 		exit
 fi
 IFS=" "
@@ -149,14 +149,16 @@ IFS=" "
 # TARGET_ARCH variable is needed by OrangeFox to determine which version of binary to include
 if [ -z ${TARGET_ARCH+x} ]
 	then
-		printf "You didn't set TARGET_ARCH variable in config\n"
+		echo "You didn't set TARGET_ARCH variable in config"
 		exit
 fi
 
 # Define this value to fix graphical issues
 if [ -z ${OF_SCREEN_H+x} ]
 	then
-		printf "You didn't set OF_SCREEN_H variable in config\nThis variable is needed to fix graphical issues on non-16:9 devices.\nEven if you have a 16:9 device, set it anyway."
+		echo "You didn't set OF_SCREEN_H variable in config
+This variable is needed to fix graphical issues on non-16:9 devices.
+Even if you have a 16:9 device, set it anyway."
 		exit
 fi
 
@@ -216,10 +218,10 @@ OrangeFox $TW_DEVICE_VERSION $BUILD_TYPE
 Device: $TARGET_DEVICE
 Architecture: $TARGET_ARCH
 Clean build: $CLEAN_BUILD_NEEDED
-Output:"
-		printf "\n"
-		curl -F name=document -F document=@"out/target/product/$TARGET_DEVICE/OrangeFox-$TW_DEVICE_VERSION-$BUILD_TYPE-$TARGET_DEVICE.zip" -H "Content-Type:multipart/form-data" "https://api.telegram.org/bot$TG_BOT_TOKEN/sendDocument?chat_id=$TG_CHAT_ID"
-		printf "\n"
+Output:" > /dev/null
+		echo ""
+		curl -F name=document -F document=@"out/target/product/$TARGET_DEVICE/OrangeFox-$TW_DEVICE_VERSION-$BUILD_TYPE-$TARGET_DEVICE.zip" -H "Content-Type:multipart/form-data" "https://api.telegram.org/bot$TG_BOT_TOKEN/sendDocument?chat_id=$TG_CHAT_ID" > /dev/null
+		echo ""
 	else
 		curl -s -X POST "https://api.telegram.org/bot$TG_BOT_TOKEN/editMessageText" -d chat_id=$TG_CHAT_ID -d message_id=$MESSAGE_ID -d text="Build failed!
 
@@ -227,8 +229,8 @@ OrangeFox $TW_DEVICE_VERSION $BUILD_TYPE
 Device: $TARGET_DEVICE
 Architecture: $TARGET_ARCH
 Clean build: $CLEAN_BUILD_NEEDED
-Output:"
-		printf "\n"
+Output:" > /dev/null
+		echo ""
 fi
 
 
