@@ -198,6 +198,7 @@ if [ "$?" != "0" ]
 fi
 
 # Send message about started build
+if [ $TG_POST = "Yes" ]
 MESSAGE_ID=$(curl -s -X POST "https://api.telegram.org/bot$TG_BOT_TOKEN/sendMessage" -d chat_id=$TG_CHAT_ID -d text="Build started
 
 OrangeFox $TW_DEVICE_VERSION $BUILD_TYPE
@@ -205,11 +206,13 @@ Device: $TARGET_DEVICE
 Architecture: $TARGET_ARCH
 Clean build: $CLEAN_BUILD_NEEDED
 Output:" | jq -r '.result.message_id')
+fi
 
 # Start building
 mka recoveryimage
 
 # If build had success, send file to a Telegram channel, else say failed
+if [ $TG_POST = "Yes" ]
 if [ "$?" = "0" ]
 	then
 		curl -s -X POST "https://api.telegram.org/bot$TG_BOT_TOKEN/editMessageText" -d chat_id=$TG_CHAT_ID -d message_id=$MESSAGE_ID -d text="Build finished!
@@ -232,5 +235,5 @@ Clean build: $CLEAN_BUILD_NEEDED
 Output:" > /dev/null
 		echo ""
 fi
-
+fi
 
