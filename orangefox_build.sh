@@ -69,8 +69,8 @@ clear
 logo
 # Ask for release version
 printf "Insert the version number of this release\nExample: R10.1\nVersion: "
-read TW_DEVICE_VERSION
-export TW_DEVICE_VERSION
+read FOX_VERSION
+export FOX_VERSION
 clear
 
 logo
@@ -115,7 +115,7 @@ fi
 if [ $TG_POST = "Yes" ]; then
 	send_message "Build started
 
-OrangeFox $TW_DEVICE_VERSION $BUILD_TYPE
+OrangeFox $FOX_VERSION $FOX_BUILD_TYPE
 Device: $TARGET_DEVICE
 Architecture: $TARGET_ARCH
 Clean build: $CLEAN_BUILD_NEEDED
@@ -132,18 +132,18 @@ if [ $TG_POST = "Yes" ]; then
 		
 		edit_message "Build finished!
 
-OrangeFox $TW_DEVICE_VERSION $BUILD_TYPE
+OrangeFox $FOX_VERSION $FOX_BUILD_TYPE
 Device: $TARGET_DEVICE
 Architecture: $TARGET_ARCH
 Clean build: $CLEAN_BUILD_NEEDED
 Output:"
 		echo ""
-		send_file "out/target/product/$TARGET_DEVICE/OrangeFox-$TW_DEVICE_VERSION-$BUILD_TYPE-$TARGET_DEVICE.zip"
+		send_file "out/target/product/$TARGET_DEVICE/OrangeFox-$FOX_VERSION-$FOX_BUILD_TYPE-$TARGET_DEVICE.zip"
 		echo ""
 	else
 		edit_message "Build failed!
 
-OrangeFox $TW_DEVICE_VERSION $BUILD_TYPE
+OrangeFox $FOX_VERSION $FOX_BUILD_TYPE
 Device: $TARGET_DEVICE
 Architecture: $TARGET_ARCH
 Clean build: $CLEAN_BUILD_NEEDED
