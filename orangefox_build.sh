@@ -39,7 +39,7 @@ read TARGET_DEVICE
 clear
 
 # Ask for release version
-printf "Insert the version number of this release\nExample: R10.1\nVersion: "
+printf "Insert the version number of this release\nExample: R11.0_0\nVersion: "
 read FOX_VERSION
 export FOX_VERSION
 clear
