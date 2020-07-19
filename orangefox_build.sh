@@ -14,6 +14,8 @@ logo
 # AOSP enviroment setup
 echo "AOSP environment setup, please wait..."
 . build/envsetup.sh
+# Enable ccache
+ccache -M 20G
 clear
 
 logo

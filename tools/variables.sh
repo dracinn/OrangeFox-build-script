@@ -19,6 +19,4 @@ export FOX_USE_BASH_SHELL="1"
 export FOX_USE_NANO_EDITOR="1"
 # Modify this variable to your name
 export OF_MAINTAINER="SebaUbuntu"
-# Enable ccache
-ccache -M 20G
 }
