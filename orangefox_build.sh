@@ -45,9 +45,9 @@ export FOX_VERSION
 clear
 
 # Ask for release type
-printf "Insert the type of this release\nPossibilities: Stable - Beta - RC - Unofficial\nRelease type: "
-read BUILD_TYPE
-export BUILD_TYPE
+printf "Insert the type of this release\nPossibilities: Stable - Beta (leave empty for unofficial builds)\nRelease type: "
+read FOX_BUILD_TYPE
+export FOX_BUILD_TYPE
 clear
 
 logo
