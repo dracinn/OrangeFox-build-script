@@ -14,8 +14,6 @@
 
  - Generate device-specific variables step-by-step, helping you what to choose
 
- - When build is done, you can release file directly to a Telegram channel or group
-
 ### "How can I use it?"
 
  - Clone this repo to the root of OrangeFox sources
