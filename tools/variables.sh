@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Common variables for OF building scripts
-export_common_variables () {
 # For building with mimimal TWRP
 export ALLOW_MISSING_DEPENDENCIES=true
 export TW_DEFAULT_LANGUAGE="en"
@@ -11,4 +10,3 @@ export LC_ALL="C"
 export USE_CCACHE="1"
 # Modify this variable to your name
 export OF_MAINTAINER="SebaUbuntu"
-}

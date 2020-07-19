@@ -7,7 +7,7 @@ SCRIPT_VERSION="v2.2"
 # Import common functions
 source ./tools/functions.sh
 # Import common variables
-source ./tools/variables.sh
+source tools/variables.sh
 
 clear
 logo
@@ -60,7 +60,6 @@ clear
 logo
 
 # Import OrangeFox build variables
-export_common_variables
 source configs/${TARGET_DEVICE}_ofconfig
 
 # TARGET_ARCH variable is needed by OrangeFox to determine which version of binary to include
