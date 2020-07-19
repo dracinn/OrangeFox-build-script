@@ -12,8 +12,6 @@
 
  - Organize device-specific variables in different files (called ofconfigs, similar to Linux defconfig), without touching the script
 
- - Generate device-specific variables step-by-step, helping you what to choose
-
 ### "How can I use it?"
 
  - Clone this repo to the root of OrangeFox sources
