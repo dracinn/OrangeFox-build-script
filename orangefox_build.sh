@@ -4,13 +4,10 @@
 
 SCRIPT_VERSION="v2.2"
 
-# Import common functions
-source ./tools/functions.sh
 # Import common variables
 source tools/variables.sh
 
 clear
-logo
 # AOSP enviroment setup
 echo "AOSP environment setup, please wait..."
 . build/envsetup.sh
@@ -18,7 +15,6 @@ echo "AOSP environment setup, please wait..."
 ccache -M 20G
 clear
 
-logo
 # Ask user if a clean build is needed
 printf "Do you want to do a clean build?\nAnswer: "
 read CLEAN_BUILD_NEEDED
@@ -37,20 +33,17 @@ case $CLEAN_BUILD_NEEDED in
 		;;
 esac
 
-logo
 # what device are we building for?
 printf "Insert the device codename you want to build for\nCodename: "
 read TARGET_DEVICE
 clear
 
-logo
 # Ask for release version
 printf "Insert the version number of this release\nExample: R10.1\nVersion: "
 read FOX_VERSION
 export FOX_VERSION
 clear
 
-logo
 # Ask for release type
 printf "Insert the type of this release\nPossibilities: Stable - Beta - RC - Unofficial\nRelease type: "
 read BUILD_TYPE
