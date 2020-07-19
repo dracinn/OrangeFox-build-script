@@ -84,7 +84,7 @@ logo
 
 # Import OrangeFox build variables
 export_common_variables
-import_ofconfig $TARGET_DEVICE
+source configs/${TARGET_DEVICE}_ofconfig
 
 # TARGET_ARCH variable is needed by OrangeFox to determine which version of binary to include
 if [ -z ${TARGET_ARCH+x} ]
