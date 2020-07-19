@@ -2,8 +2,6 @@
 
 # Common variables for OF building scripts
 export_common_variables () {
-# Build official recovery
-export FOX_BUILD_TYPE=Stable
 # For building with mimimal TWRP
 export ALLOW_MISSING_DEPENDENCIES=true
 export TW_DEFAULT_LANGUAGE="en"
